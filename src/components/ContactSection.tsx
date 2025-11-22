@@ -59,7 +59,7 @@ export default function ContactSection() {
   };
 
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'sheikhf3135@gmail.com' },
+    { icon: Mail, label: 'Email', value: 'muhammadfaisal.connect@gmail.com' },
     { icon: Phone, label: 'Phone', value: '+92 306 8017431' },
     { icon: MapPin, label: 'Location', value: 'Rawalpindi, Pakistan' },
   ];
