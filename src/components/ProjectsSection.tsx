@@ -1,92 +1,110 @@
-import { ExternalLink } from 'lucide-react';
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import ecommerceImg from '@/assets/generated_images/E-commerce_project_screenshot_b4fa09a4.png';
-import blogImg from '@/assets/generated_images/WordPress_blog_project_screenshot_3740d59b.png';
-import businessImg from '@/assets/generated_images/Business_website_project_screenshot_248756e9.png';
-import restaurantImg from '@/assets/generated_images/Restaurant_website_project_screenshot_862707b9.png';
+import { ExternalLink } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+
+// Update these imports with your new mockup images
+import coursessite from "@/assets/generated_images/courseshub.jpeg";
+import portfoliosite from "@/assets/generated_images/faisalportfolio.jpg";
+import consultingImg from "@/assets/generated_images/consulting_mockup.jpeg"; // Use the new mockup here
+import restaurantImg from "@/assets/generated_images/resturantsite.jpg";
 
 interface Project {
   title: string;
   description: string;
   image: string;
   tags: string[];
+  liveUrl: string; // Added field for the actual website link
 }
 
 export default function ProjectsSection() {
   const projects: Project[] = [
     {
-      title: 'E-Commerce Platform',
+      title: "Premium Consulting Platform",
       description:
-        'A modern e-commerce website built with WordPress and WooCommerce, featuring custom product filters, wishlist functionality, and seamless checkout experience.',
-      image: ecommerceImg,
-      tags: ['WordPress', 'WooCommerce', 'PHP', 'JavaScript'],
+        "Developed a high-conversion, custom WordPress platform for a professional consulting firm. Rather than using a generic template, I engineered a bespoke layout using Elementor and Custom CSS to ensure unique brand identity and pixel-perfect responsiveness.",
+      image: consultingImg,
+      tags: ["WordPress", "Elementor", "Custom CSS", "Responsive"],
+      liveUrl: "https://consulting-solutions.42web.io/",
     },
     {
-      title: 'Tech Blog Website',
+      title: "WordPress Learning & Training Site",
       description:
-        'A custom WordPress blog with advanced features including category filtering, social sharing, and optimized SEO performance for better search rankings.',
-      image: blogImg,
-      tags: ['WordPress', 'Custom Theme', 'SEO', 'Responsive'],
+        "A functional educational platform created by customizing a professional WordPress theme for business courses. I focused on setting up the site structure, adjusting the design with Elementor, and organizing the content to make it easy for students to find and take courses.",
+      image: coursessite,
+      tags: ["WordPress", "Elementor", "Theme Customization", "Layout Design"],
+      liveUrl: "https://courseshub.42web.io/",
     },
     {
-      title: 'Corporate Business Site',
+      title: "Developer Portfolio",
       description:
-        'Professional business website with modern design, contact forms, service showcases, and integrated analytics for tracking visitor engagement.',
-      image: businessImg,
-      tags: ['HTML5', 'CSS3', 'JavaScript', 'React'],
+        "A clean and professional portfolio website created by customizing a high-quality WordPress theme to showcase my web development services. I tailored the design using Elementor to highlight my experience, technical skills in HTML/CSS/JS, and my project workflow.",
+      image: portfoliosite,
+      tags: ["WordPress", "Theme Customization", "Personal Branding", "Responsive Design"],
+      liveUrl: "https://muhammadfaisalportfolio.42web.io/",
     },
     {
-      title: 'Restaurant Website',
+      title: "Coffee & Bakery Website",
       description:
-        'Interactive restaurant website featuring online menu, reservation system, photo gallery, and location map integration for enhanced user experience.',
+        "A warm and inviting website designed for a boutique coffee house and bakery. I customized a professional WordPress theme to highlight seasonal baked goods, premium coffee selections, and a cozy shop atmosphere. Used Elementor to create a responsive menu and easy reservation system.",
       image: restaurantImg,
-      tags: ['WordPress', 'Custom Design', 'Booking System'],
+      tags: ["WordPress", "Elementor", "Menu", "Reservation"],
+      liveUrl: "https://mycoffee.42web.io/",
     },
   ];
 
   return (
     <section id="projects" className="py-20 md:py-32 bg-card/30">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
           Featured Projects
         </h2>
+
+        {/* Trust-Building Message */}
+        <p className="text-sm text-blue-400 font-medium text-center mb-2 uppercase tracking-widest">
+          Proof of Concept & Skills
+        </p>
         <p className="text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-          A showcase of my recent work and client projects
+          The following are live demo and practice projects created to
+          demonstrate my expertise in <strong>WordPress development</strong> and{" "}
+          <strong>Responsive Design</strong>.
         </p>
 
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="overflow-hidden hover-elevate group"
+              className="overflow-hidden hover-elevate group border-muted/20 bg-background/50 backdrop-blur-sm"
               data-testid={`card-project-${index}`}
             >
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden aspect-video">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   data-testid={`img-project-${index}`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end justify-center pb-6">
                   <Button
                     asChild
-                    variant="outline"
-                    className="backdrop-blur-sm bg-background/20"
-                    data-testid={`button-view-${index}`}
+                    variant="default"
+                    className="bg-primary hover:bg-primary/90 text-white shadow-lg transform transition-transform duration-300 group-hover:scale-105"
                   >
-                    {/* 👇 Clicking now opens the project image in new tab */}
-                    <a href={project.image} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <ExternalLink className="h-4 w-4 mr-2" />
-                      View Project
+                      Live Preview
                     </a>
                   </Button>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-3">{project.title}</h3>
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
                   {project.description}
                 </p>
@@ -94,8 +112,8 @@ export default function ProjectsSection() {
                   {project.tags.map((tag, tagIndex) => (
                     <Badge
                       key={tagIndex}
-                      variant="secondary"
-                      className="text-xs font-mono"
+                      variant="secondary" // Use "secondary" for a subtle, professional grey background
+                      className="text-xs font-medium px-3 py-1 rounded-md" // standard font-medium prevents that "different" text look
                     >
                       {tag}
                     </Badge>
