@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 // Update these imports with your new mockup images
 import coursessite from "@/assets/generated_images/courseshub.jpeg";
-import portfoliosite from "@/assets/generated_images/faisalportfolio.jpg";
+import portfoliosite from "@/assets/generated_images/faisalportfolio.jpeg";
 import consultingImg from "@/assets/generated_images/consulting_mockup.jpeg"; // Use the new mockup here
 import restaurantImg from "@/assets/generated_images/resturantsite.jpg";
 
