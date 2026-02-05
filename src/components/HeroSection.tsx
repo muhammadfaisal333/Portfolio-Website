@@ -1,12 +1,11 @@
 import { ArrowDown, FileText, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { useToast } from '@/hooks/use-toast';
+
 import heroImage from '@/assets/generated_images/Professional_tech_hero_background_388070e1.png';
 
 export default function HeroSection() {
-  const { toast } = useToast();
-  
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -14,11 +13,9 @@ export default function HeroSection() {
     }
   };
 
-const handleResumeClick = () => {
-  window.open('/resume.pdf', '_blank');
-};
-
-
+  const handleResumeClick = () => {
+    window.open('/resume.pdf', '_blank');
+  };
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -114,14 +111,7 @@ const handleResumeClick = () => {
         </div>
       </div>
       
-     <button
-  onClick={() => scrollToSection('about')}
-  className="absolute bottom-8 inset-x-0 mx-auto w-max animate-bounce"
->
-  <div className="p-3 rounded-full border-2 border-primary/50 bg-background/20 backdrop-blur-sm hover:border-primary transition-colors">
-    <ArrowDown className="h-5 w-5 text-primary" />
-  </div>
-</button>
+      {/* 🚀 REMOVED: The bouncing bottom button code is gone from here */}
 
     </section>
   );
