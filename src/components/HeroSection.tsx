@@ -1,11 +1,13 @@
 import { ArrowDown, FileText, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+// 1. Import your new component
+import AnimatedCounter from '@/components/AnimatedCounter';
 
 import heroImage from '@/assets/generated_images/Professional_tech_hero_background_388070e1.png';
 
 export default function HeroSection() {
-
+  
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -89,30 +91,28 @@ export default function HeroSection() {
           </Button>
         </div>
         
+        {/* 👇 UPDATED SECTION WITH ANIMATED NUMBERS */}
         <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-8 border-t border-border/50">
           <div>
             <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent mb-2">
-              2+
+              <AnimatedCounter end={2} suffix="+" duration={1500} />
             </div>
             <div className="text-sm text-muted-foreground">Years Experience</div>
           </div>
           <div>
             <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent mb-2">
-              50+
+              <AnimatedCounter end={50} suffix="+" duration={2500} />
             </div>
             <div className="text-sm text-muted-foreground">Projects Done</div>
           </div>
           <div>
             <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent mb-2">
-              30+
+              <AnimatedCounter end={30} suffix="+" duration={2000} />
             </div>
             <div className="text-sm text-muted-foreground">Happy Clients</div>
           </div>
         </div>
       </div>
-      
-      {/* 🚀 REMOVED: The bouncing bottom button code is gone from here */}
-
     </section>
   );
 }
